@@ -1,38 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(247, 181, 225);
+}
+
 .App {
-  text-align: center;
+    width: 300px;
+    max-height: 675px;
+    background-color: white;
+    text-align: center;
+    margin-left: 50%;
+    translate: -50% -50%;
+    margin-top: 50%;
+    border-radius: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#container-changePage-id {
+    background-color: rgb(247, 181, 225);
+    padding: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.buttonChange-name {
+    background-color: rgb(247, 181, 225);
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    width: 145px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.buttonChange-name:hover {
+    background-color: rgb(247, 140, 211);
 }
 
-.App-link {
-  color: #61dafb;
+.form-container-name {
+    margin-top: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+label {
+    font-size: 1.3em;
+}
+
+#user-id, #password-id, #confirmPassword-id {
+    width: 250px;
+    height: 30px;
+    border: 1px solid black;
+    border-top: none;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    color: darkviolet;
+}
+
+#button-login-id, #button-register-id {
+    padding: 10px;
+    width: 250px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    background-color: rgb(247, 181, 225);
+}
+
+#button-register-id {
+    margin-bottom: 50px;
+}
+
+#button-login-id:hover, #button-register-id:hover {
+    background-color: rgba(148, 0, 211, 0.747);
+    color: white;
+}
+
+#container-forgotPass {
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+
+#forgotPass-id {
+    text-decoration: none;
+    color: darkviolet;
+    font-weight: bold;
+}
+
+.form-error {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: .75em;
+    color: red;
+    font-weight: bold;
+    translate: 0% -130%;
 }
