@@ -8,7 +8,7 @@ function App() {
   const [statePage, setStatePage] = useState('login')
   
   const validationLogin = yup.object().shape({
-    user: yup
+    celular: yup
       .string()
       .required("This field is required"),
     password: yup
@@ -74,7 +74,7 @@ function App() {
           </div>
     
           <Formik
-            initialValues = {{user: '', password: ''}}
+            initialValues = {{celular: '', password: ''}}
             onSubmit = {handleClickLogin}
             validationSchema = {validationLogin}
           >
@@ -83,13 +83,13 @@ function App() {
               <Form className = "form-container-login">
 
                 <p>
-                  <label htmlFor = 'user-id'>User</label>
+                  <label htmlFor = 'celular-id'>Celular</label>
                 </p>
                 <p>
-                  <Field type = "number" name = "user" id = "user-id"></Field>
+                  <Field type = "number" name = "celular" id = "celular-id"></Field>
                   <ErrorMessage 
                     component="span"
-                    name="user"
+                    name="celular"
                     className='form-error'
                   />
                 </p>
