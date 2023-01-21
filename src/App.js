@@ -18,7 +18,10 @@ function App() {
   })
 
   const validationRegister = yup.object().shape({
-    user: yup
+    name: yup 
+      .string()
+      .required("This field is required"),
+    celular: yup
       .string()
       .required("This field is required"),
     password: yup
@@ -27,7 +30,7 @@ function App() {
       .required("This field is required"),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref("password"),null], "The password are not the same")
+      .oneOf([yup.ref("password"), null], "The password are not the same")
       .required("This field is required"),
   })
 
@@ -50,10 +53,17 @@ function App() {
     alert ('Register ok')
   }
 
+
+  //Initial State
+  function InitialState() {
+    console.log ('teste')
+  }
+
+
   function formLogin() {
 
     if (statePage == 'login') {
-      
+      InitialState()
       return (
     
         <div className = "App">
@@ -70,7 +80,7 @@ function App() {
           >
                
             { () => (
-              <Form className = "form-container-name">
+              <Form className = "form-container-login">
 
                 <p>
                   <label htmlFor = 'user-id'>User</label>
@@ -113,7 +123,7 @@ function App() {
       );
 
     } else if (statePage =='register') {
-      
+      InitialState()
       return (
     
         <div className = "App">
@@ -124,21 +134,32 @@ function App() {
           </div>
     
           <Formik
-            initialValues = {{user: '', password: '', confirmPassword: ''}}
+            initialValues = {{name: '', celular: '', password: '', confirmPassword: ''}}
             onSubmit = {handleClickRegister}
             validationSchema = {validationRegister}
           >
             { () => (
-              <Form className = "form-container-name">
+              <Form className = "form-container-register">
     
                 <p>
-                  <label htmlFor = 'user-id'>User</label>
+                  <label htmlFor = 'name-id'>Name</label>
                 </p>
                 <p>
-                  <Field type = "number" name = "user" id = "user-id"></Field>
+                  <Field type = "text" name = "name" id = "name-id"></Field>
                   <ErrorMessage 
                     component="span"
-                    name="user"
+                    name="name"
+                    className='form-error'
+                  />
+                </p>
+                <p>
+                  <label htmlFor = 'celular-id'>Celular</label>
+                </p>
+                <p>
+                  <Field type = "number" name = "celular" id = "celular-id"></Field>
+                  <ErrorMessage 
+                    component="span"
+                    name="celular"
                     className='form-error'
                   />
                 </p>

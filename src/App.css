@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -9,14 +10,15 @@ body {
 }
 
 .App {
+    display: relative;
     width: 300px;
     max-height: 675px;
     background-color: white;
     text-align: center;
-    margin-left: 50%;
-    translate: -50% -50%;
-    margin-top: 50%;
     border-radius: 10px;
+    margin-top: 100px;
+    margin-left: 50%;
+    translate: -50%;
 }
 
 #container-changePage-id {
@@ -37,15 +39,19 @@ body {
     background-color: rgb(247, 140, 211);
 }
 
-.form-container-name {
+.form-container-login {
     margin-top: 100px;
+}
+
+.form-container-register {
+    margin-top: 30px;
 }
 
 label {
     font-size: 1.3em;
 }
 
-#user-id, #password-id, #confirmPassword-id {
+#celular-id, #password-id, #confirmPassword-id, #name-id, #user-id {
     width: 250px;
     height: 30px;
     border: 1px solid black;
