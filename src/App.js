@@ -1,7 +1,8 @@
 import './App.css';
 import { Formik, Form, Field, ErrorMessage} from 'formik'
-import React, { useState } from 'react';
-import * as yup from 'yup';
+import React, { useState } from 'react'
+import * as yup from 'yup'
+import Axios from 'axios'
 
 function App() {
 
@@ -18,9 +19,6 @@ function App() {
   })
 
   const validationRegister = yup.object().shape({
-    name: yup 
-      .string()
-      .required("This field is required"),
     celular: yup
       .string()
       .required("This field is required"),
@@ -34,6 +32,9 @@ function App() {
       .required("This field is required"),
   })
 
+
+// Change Login or Register
+
   function clickLogin() {
     setStatePage ("login")
     formLogin()
@@ -44,26 +45,31 @@ function App() {
     formLogin()
   }
 
+// Action to the mouse button click
+
   const handleClickLogin = (values) => {
     console.log (values)
     alert ('Login ok')
   }
+
   const handleClickRegister = (values) => {
-    console.log (values)
+    Axios.post("https://localhost:3001/", {
+      celular: values.celular,
+      password: values.password,
+    }).then((response) => {
+      console.log (response)
+    })
+    
     alert ('Register ok')
-  }
-
-
-  //Initial State
-  function InitialState() {
-    console.log ('teste')
   }
 
 
   function formLogin() {
 
     if (statePage == 'login') {
-      InitialState()
+
+// Login Page
+      
       return (
     
         <div className = "App">
@@ -123,7 +129,9 @@ function App() {
       );
 
     } else if (statePage =='register') {
-      InitialState()
+      
+// Register Page
+      
       return (
     
         <div className = "App">
@@ -134,24 +142,13 @@ function App() {
           </div>
     
           <Formik
-            initialValues = {{name: '', celular: '', password: '', confirmPassword: ''}}
+            initialValues = {{celular: '', password: '', confirmPassword: ''}}
             onSubmit = {handleClickRegister}
             validationSchema = {validationRegister}
           >
             { () => (
               <Form className = "form-container-register">
     
-                <p>
-                  <label htmlFor = 'name-id'>Name</label>
-                </p>
-                <p>
-                  <Field type = "text" name = "name" id = "name-id"></Field>
-                  <ErrorMessage 
-                    component="span"
-                    name="name"
-                    className='form-error'
-                  />
-                </p>
                 <p>
                   <label htmlFor = 'celular-id'>Celular</label>
                 </p>
